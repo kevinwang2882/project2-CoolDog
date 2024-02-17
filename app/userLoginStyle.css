@@ -59,6 +59,12 @@ header {
 .signup-button:hover {
     background-color: #45a049;
 }
+#user-name {
+
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Font weight */
+    margin-left: 10px; 
+}
 
 .navbar {
     background-color: #333;

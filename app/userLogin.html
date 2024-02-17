@@ -4,43 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Player</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="userLoginStyle.css">
     
 </head>
 <body>
         <header>
-            <h1 class="logo"><a hidefocus="true" href="index.html">CoolDog</a></h1>
+            <h1 class="logo"><a hidefocus="true" href="userLogin.html">CoolDog</a></h1>
                 <div class="search-bar-container">
                 <input type="text" placeholder="Music/Album...">
                 <button>Search</button>
                 </div>
         </header>
 
+        <div id="header"></div>
+        <div id="content">
+
         <div class="buttons-container">
             <button id="login-button">Login</button>
             <button id="signup-button">Sign Up</button>
+            <span id="user-name" style="display: none;"></span>
             <button id="logout-button" style="display: none;">Logout</button>
+           
         </div>
 
             <div class="navbar">
                 <ul>
                     <button id="discover">discover</button>
                     <button id="library">Library</button>
-                    <button id="listen-Now">Listen Now</button>
-                    <button id="all-music">All music</button>
+                    <button id="listen Now">Listen Now</button>
                 </ul>
             
             </div>
             
-            <div id="header"></div>
-            <div id="content"></div>
+
 
 
     <footer>
         <p>&copy; 2024 CoolDog . All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="userLoginScript.js"></script>
  
 </body>
 </html>
