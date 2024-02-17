@@ -1,52 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Player</title>
-    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
 </head>
 <body>
+        <header>
+            <h1 class="logo"><a hidefocus="true" href="/#">CoolDog</a></h1>
+                <div class="search-bar-container">
+                <input type="text" placeholder="Music/Album...">
+                <button>Search</button>
+                </div>
+        </header>
 
-    <div id="g-topbar" class="g-topbar" style="width: 1039px; top: 0px;">
-        <div class="m-top">
-        <div class="wrap f-cb">
-        <h1 class="logo"><a hidefocus="true" href="/#">CoolDog</a></h1>
-        <ul class="m-nav j-tflag">
-        <li class="fst">
-        <span><a hidefocus="true" href="/#" data-module="discover" class="z-slt"><em>My Music</em><sub class="cor">&nbsp;</sub></a></span>
-        </li>
-        <li>
-        <span><a data-action="bilog" data-log-action="page" data-log-json="{&quot;type&quot;:&quot;my&quot;}" hidefocus="true" href="/my/" data-module="my"><em>My Music</em><sub class="cor">&nbsp;</sub></a></span>
-        </li>
-        </ul>
-        <div class="m-tophead f-pr j-tflag" id="auto-id-RAmtpbycyL1TGsmo"><a hidefocus="true" href="#" class="link s-fc3" data-action="login">Login</a>
-        <div class="m-tlist j-uflag" style="display: none;">
-        <div class="inner">
-        </div>
-        <i class="arr"></i>
-        </div>
-        </div>
-        <div class="srchbg">
-        <span class="parent">
-        <input type="text" name="srch" id="srch" class="txt j-flag" value="" style="opacity: 1;">
-        <label class="ph j-flag" id="auto-id-z8wXdyRsXKsynmVE">music</label>
-        </span>
-        </div>
-        <span class="j-flag" style="display:none;" id="auto-id-tZs4TspAp31hVA9S">&nbsp;</span>
-        <div class="u-lstlay j-flag" style="display:none;" id="auto-id-UkM3L3mo7AMQ4D9Q"></div>
+        <div class="buttons-container">
+            <button id="login-button">Login</button>
+            <button id="signup-button">Sign Up</button>
         </div>
 
-        <div class="m-subnav m-subnav-up f-pr j-tflag f-hide"></div>
-        <div id="g_nav2" class="m-subnav j-tflag">
-        <div class="wrap f-pr">
-        <ul class="nav">
-        <li><a hidefocus="true" data-module="discover" href="/discover" class="z-slt"><em>Recommand</em></a></li>
-        <li><a hidefocus="true" data-module="toplist" href="/discover/toplist"><em>Toplist</em></a></li>
-        <li><a hidefocus="true" data-module="playlist" href="/playlists"><em class="f-pr" style="padding: 10 15px 0 11px;">Playlist<span class="f-pa f-r-white-icon" style="display:inline-block;width:8px;height:8px;top:2px;background-size:cover;"></span></em></a></li>
-        <li><a hidefocus="true" data-module="artist" href="/artists"><em>Artist</Article></em></a></li>
-        <li><a hidefocus="true" data-module="album" href="/albums"><em>New Album</em></a></li>
-        </ul>
-        </div>
+            <div class="navbar">
+                <ul>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Playlist</a></li>
+                    <li><a href="#">Album</a></li>
+                </ul>
+                
+            </div>
+    <footer>
+        <p>&copy; 2024 CoolDog . All rights reserved.</p>
+    </footer>
+    
     <script src="script.js"></script>
+ 
 </body>
 </html>

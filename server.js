@@ -7,7 +7,7 @@ const cors = require('cors');
 const { getAlbum, getAlbumById, createAlbum, updateAlbum, deleteAlbum } = require('./controllers/albumController');
 const { getPlaylist, getPlaylistById, createPlaylist, updatePlaylist, deletePlaylist } = require('./controllers/playlistController');
 const { getSong, getSongById, createSong, updateSong, deleteSong} = require('./controllers/songController');
-const { getUsers, getUserById, createUser, updateUser, deleteUser } = require('./controllers/userController');
+const { getUsers, getUserById, createUser, updateUser, deleteUser, userSignUp,userLogin, } = require('./controllers/userController');
 
 
 const PORT = process.env.PORT || 3001;
@@ -48,6 +48,15 @@ app.post('/users/create', createUser)
 app.get('/users/:id', getUserById)
 app.put('/users/:id/update', updateUser)
 app.delete('/users/:id/delete', deleteUser)
+
+
+
+//for sign up
+app.post('/users/signup', userSignUp)
+//for login
+app.post('/users/login', userLogin)
+
+
 
 // Handle 404 errors
 app.get('/*', async (req,res) => {

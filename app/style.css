@@ -1,76 +1,91 @@
-/* Reset default browser styles */
-body, h1, ul, li, a, input, button {
+/* styles.css */
+.logo {
+    text-decoration: none;
+    color: white !important; /* Change the color to white */
+}
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    border: none;
-    outline: none;
-    font-family: Arial, sans-serif;
 }
 
-/* Main container styles */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f8f8f8;
-}
-
-/* Topbar styles */
-.g-topbar {
-    width: 100%;
+header {
     background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-}
-
-/* Navigation styles */
-.navbar {
+    color: white;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.navbar ul {
+.search-bar-container {
     display: flex;
-    list-style: none;
+    align-items: center; /* Align items vertically */
+    flex-grow: 0.5;
 }
 
-.navbar li {
-    margin-right: 20px;
+.search-bar-container input[type="text"] {
+    padding: 5px;
+    margin-right: 5px; /* Add margin to separate input and button */
+    width: 300px; /* Set the width to 300px or adjust as needed */
 }
 
-.navbar a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-}
-
-/* Search bar styles */
-.search-bar {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-}
-
-.search-bar input[type="text"] {
-    width: 200px;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    margin-right: 10px;
-}
-
-.search-bar button {
-    padding: 8px 16px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
+.search-bar-container button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
 }
 
-.search-bar button:hover {
-    background-color: #0056b3;
+.buttons-container {
+    position: absolute;
+    top: 35px;
+    right: 50px;
+}
+
+#login-button,
+#signup-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.login-button:hover,
+.signup-button:hover {
+    background-color: #45a049;
+}
+
+.navbar {
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navbar ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+footer {
+    background-color: #0070c0;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

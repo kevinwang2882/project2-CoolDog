@@ -1,11 +1,15 @@
-const audioPlayer = document.getElementById('audioPlayer');
-const playButton = document.getElementById('playButton');
-const pauseButton = document.getElementById('pauseButton');
 
-playButton.addEventListener('click', () => {
-    audioPlayer.play();
+
+const loginButton = document.getElementById('login-button');
+loginButton.addEventListener('click', () => {
+    window.location.href = 'login.html';
 });
 
-pauseButton.addEventListener('click', () => {
-    audioPlayer.pause();
+const signupButton = document.getElementById('signup-button');
+signupButton.addEventListener('click', () => {
+    window.location.href = 'signUp.html';
 });
+
+
+
+
