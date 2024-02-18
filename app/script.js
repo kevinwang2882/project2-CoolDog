@@ -27,7 +27,7 @@ fetch('http://localhost:3001/playlists')
     });
     const allMusicButton = document.getElementById('all-music');
 allMusicButton.addEventListener('click', () => {
-    fetch('allMusic.html')
+    fetch('allMusic/allMusic.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('content').innerHTML = data; // Load content into 'content' element
@@ -35,4 +35,23 @@ allMusicButton.addEventListener('click', () => {
         .catch(error => {
             console.error('Error loading all-music:', error);
         });
+});
+
+const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-button');
+const searchResults = document.getElementById('search-results');
+
+searchButton.addEventListener('click', () => {
+    const query = searchInput.value.trim(); // Get the search query
+    if (query) {
+        fetch(`http://localhost:3001/search?q=${encodeURIComponent(query)}`) // Encode the query parameter
+            .then(response => response.json())
+            .then(data => {
+                localStorage.setItem('searchResults', JSON.stringify(data)); // Store the search results in localStorage
+                window.location.href = 'search.html'; // Redirect to the search results page
+            })
+            .catch(error => {
+                console.error('Error searching for music:', error);
+            });
+    }
 });

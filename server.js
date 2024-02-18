@@ -6,9 +6,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const { getAlbum, getAlbumById, createAlbum, updateAlbum, deleteAlbum } = require('./controllers/albumController');
 const { getPlaylist, getPlaylistById, createPlaylist, updatePlaylist, deletePlaylist } = require('./controllers/playlistController');
-const { getSong, getSongById, createSong, updateSong, deleteSong} = require('./controllers/songController');
+const {searchsong,getSong, getSongById, createSong, updateSong, deleteSong} = require('./controllers/songController');
 const { getUsers, getUserById, createUser, updateUser, deleteUser, userSignUp,userLogin, } = require('./controllers/userController');
-
+const path = require('path');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -37,6 +37,7 @@ app.get('/playlists/:id', getPlaylistById)
 app.put('/playlists/:id/update', updatePlaylist)
 app.delete('/playlists/:id/delete', deletePlaylist)
 
+app.use('/songs/music', express.static(path.join(__dirname, 'music')));
 app.get('/songs', getSong)
 app.post('/songs/create', createSong)
 app.get('/songs/:id', getSongById)
@@ -49,12 +50,13 @@ app.get('/users/:id', getUserById)
 app.put('/users/:id/update', updateUser)
 app.delete('/users/:id/delete', deleteUser)
 
-
+app.get('/search', searchsong)
 
 //for sign up
 app.post('/users/signup', userSignUp)
 //for login
 app.post('/users/login', userLogin)
+
 
 
 
