@@ -58,10 +58,26 @@ const deleteAlbum = async (req, res) => {
     }
 }
 
+const searchAlbum = async (req, res) => {
+    const query = req.query.q; // Get the search query from the request
+    try {
+        if (!query) {
+            return res.status(400).json({ error: 'Search query is required' });
+        }
+
+        const albums = await Album.find({ title: { $regex: query, $options: 'i' } }); // Use regex to perform a case-insensitive search
+        res.json(albums); // Return the matching songs as JSON
+    } catch (error) {
+        console.error('Error searching for albums:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+};
+
 module.exports = {
     getAlbum,
     getAlbumById,
     createAlbum,
     updateAlbum,
-    deleteAlbum
+    deleteAlbum,
+    searchAlbum
 }

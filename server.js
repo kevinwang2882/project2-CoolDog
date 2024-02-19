@@ -4,9 +4,9 @@ const db = require('./db');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { getAlbum, getAlbumById, createAlbum, updateAlbum, deleteAlbum } = require('./controllers/albumController');
-const { getPlaylist, getPlaylistById, createPlaylist, updatePlaylist, deletePlaylist } = require('./controllers/playlistController');
-const {searchsong,getSong, getSongById, createSong, updateSong, deleteSong} = require('./controllers/songController');
+const { searchAlbum,getAlbum, getAlbumById, createAlbum, updateAlbum, deleteAlbum } = require('./controllers/albumController');
+const { searchPlaylist ,getPlaylist, getPlaylistById, createPlaylist, updatePlaylist, deletePlaylist } = require('./controllers/playlistController');
+const {searchSong,getSong, getSongById, createSong, updateSong, deleteSong} = require('./controllers/songController');
 const { getUsers, getUserById, createUser, updateUser, deleteUser, userSignUp,userLogin, } = require('./controllers/userController');
 const path = require('path');
 
@@ -50,7 +50,9 @@ app.get('/users/:id', getUserById)
 app.put('/users/:id/update', updateUser)
 app.delete('/users/:id/delete', deleteUser)
 
-app.get('/search', searchsong)
+app.get('/search/song', searchSong)
+app.get('/search/album', searchAlbum)
+app.get('/search/playlist', searchPlaylist)
 
 //for sign up
 app.post('/users/signup', userSignUp)

@@ -57,7 +57,7 @@ const deleteSong = async (req, res) => {
         return res.status(500).send(error.message);
     }
 }
-const searchsong = async (req, res) => {
+const searchSong = async (req, res) => {
     const query = req.query.q; // Get the search query from the request
     try {
         if (!query) {
@@ -79,7 +79,7 @@ module.exports = {
     createSong,
     updateSong,
     deleteSong,
-    searchsong
+    searchSong
 
 }
 

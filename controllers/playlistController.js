@@ -57,11 +57,27 @@ const deletePlaylist = async (req, res) => {
         return res.status(500).send(error.message);
     }
 }
+const searchPlaylist = async (req, res) => {
+    const query = req.query.q; // Get the search query from the request
+    try {
+        if (!query) {
+            return res.status(400).json({ error: 'Search query is required' });
+        }
+
+        const playlists = await Playlist.find({ name: { $regex: query, $options: 'i' } }); // Use regex to perform a case-insensitive search
+        res.json(playlists); // Return the matching playlist as JSON
+    } catch (error) {
+        console.error('Error searching for playlist:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+};
+
 
 module.exports = {
     getPlaylist,
     getPlaylistById,
     createPlaylist,
     updatePlaylist,
-    deletePlaylist
+    deletePlaylist,
+    searchPlaylist 
 }

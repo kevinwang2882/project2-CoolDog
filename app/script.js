@@ -15,16 +15,6 @@ libraryButton.addEventListener('click', () => {
     window.location.href = 'login.html';
 });
 
-fetch('http://localhost:3001/playlists')
-    .then(response => response.json())
-    .then(data => {
-        // Process the data received from the backend
-        console.log(data);
-    })
-    .catch(error => {
-        // Handle any errors that occurred during the fetch
-        console.error('Error fetching data:', error);
-    });
     const allMusicButton = document.getElementById('all-music');
 allMusicButton.addEventListener('click', () => {
     fetch('allMusic/allMusic.html')
@@ -40,11 +30,14 @@ allMusicButton.addEventListener('click', () => {
 const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-button');
 const searchResults = document.getElementById('search-results');
+const searchTypes = document.getElementById('search-type');
 
 searchButton.addEventListener('click', () => {
     const query = searchInput.value.trim(); // Get the search query
+    const type = searchTypes.value; // Get the selected search type
+
     if (query) {
-        fetch(`http://localhost:3001/search?q=${encodeURIComponent(query)}`) // Encode the query parameter
+        fetch(`http://localhost:3001/search/${type}?q=${encodeURIComponent(query)}`) // Encode the query parameter
             .then(response => response.json())
             .then(data => {
                 localStorage.setItem('searchResults', JSON.stringify(data)); // Store the search results in localStorage
