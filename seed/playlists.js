@@ -4,10 +4,10 @@ const { User, Song, Playlist } = require('../models');
 const main = async () => {
     try {
         // Find the user user1
-        const user1 = await User.findOne({ user_name: 'john_doe' });
+        const user1 = await User.findOne({ username: 'john_doe' });
 
         // Find the songs by their titles and map them to their IDs
-        const songs = await Song.find({ title: { $in: ['Highway to Hell', 'Money', 'Billie Jean', 'Shape of You', 'Uptown Funk', 'Happy', 'Bohemian Rhapsody', 'Sicko Mode', 'Gods Plan', 'Stairway to Heaven', 'Hotel California', 'Lose Yourself'] } });
+        const songs = await Song.find({ title: { $in: ['Highway to Hell', 'Money', 'Billie Jean', 'Shape of You', 'Uptown Funk', 'Happy', 'Bohemian Rhapsody', 'Sicko Mode', 'Gods Plan', 'Stairway to Heaven', 'Hotel California','Lose Yourself'] } });
         const songIdMap = songs.reduce((acc, song) => {
             acc[song.title] = song._id;
             return acc;
@@ -38,7 +38,7 @@ const main = async () => {
             {
                 name: 'Rap & Hip Hop',
                 user_id: user1._id,
-                songs: [songIdMap['Sicko Mode'], songIdMap['Gods Plan']]
+                songs: [songIdMap['Sicko Mode'], songIdMap['Gods Plan'], songIdMap['Lose Yourself']]
             }
         ];
 

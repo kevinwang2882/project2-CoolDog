@@ -15,9 +15,9 @@
                 <option value="album">Album</option>
                 <option value="playlist">Playlist</option>
             </select>
-                <div class="search-bar-container">
-                <input type="text" placeholder="Music/Album...">
-                <button>Search</button>
+            <input type="text" id="search-input" placeholder="Search for music">
+            <button id="search-button">Search</button>
+            <div id="search-results"></div>
 
                 </div>
         </header>
@@ -36,21 +36,24 @@
             <div class="navbar">
                 <ul>
                     <button id="discover">discover</button>
-                    <button id="library">Library</button>
+                    <button id="library-button">Library</button>
                     <button id="listen Now">Listen Now</button>
                 </ul>
             
             </div>
             
-            <div class="library-buttons-container">
-                <button id="playlist-button">playlist</button>
-                <button id="album-button">album</button>
-                <button id="song-button">song</button>
-
+            <div id="library-buttons-container">
+              
+                <div class="library-buttons-container">
+                    <button id="playlist-button" style="display: none;">Playlist</button>
+                    <button id="album-button" style="display: none;">Album</button>
+                    <button id="song-button" style="display: none;">Song</button>
+                    
+                </div>
     <footer>
         <p>&copy; 2024 CoolDog . All rights reserved.</p>
     </footer>
-
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script src="userLoginScript.js"></script>
  
 </body>

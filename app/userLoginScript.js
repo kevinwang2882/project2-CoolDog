@@ -54,20 +54,93 @@ document.getElementById('logout-button').addEventListener('click', () => {
     window.location.href = 'login.html';
 });
 
-const libraryButton = document.getElementById('library');
-const buttonsContainer = document.getElementById('library-buttons-container');
+const libraryButton = document.getElementById('library-button');
+const playlistButton = document.getElementById('playlist-button');
+const albumButton = document.getElementById('album-button');
+const songButton = document.getElementById('song-button');
 
-libraryButton.addEventListener('click', () => {
- const buttons = [
-        { text: 'Playlists', id: 'playlist-button' },
-        { text: 'Albums', id: 'album-button' },
-        { text: 'Songs', id: 'song-button' }
-    ];
-    buttonsContainer.innerHTML = ''; // Clear previous buttons
-    buttons.forEach(button => {
-        const buttonElement = document.createElement('button');
-        buttonElement.textContent = button.text;
-        buttonElement.id = button.id;
-        buttonsContainer.appendChild(buttonElement);
+let buttonsVisible = false;
+
+if (libraryButton) {
+    libraryButton.addEventListener('click', () => {
+        if (buttonsVisible) {
+            // Hide all buttons
+            playlistButton.style.display = 'none';
+            albumButton.style.display = 'none';
+            songButton.style.display = 'none';
+        } else {
+            // Show all buttons
+            playlistButton.style.display = '';
+            albumButton.style.display = '';
+            songButton.style.display = '';
+        }
+
+        // Toggle visibility flag
+        buttonsVisible = !buttonsVisible;
     });
+} else {
+    console.error('Library button not found.');
+}
+
+
+
+
+
+
+
+// const libraryButton = document.getElementById('library');
+// const buttonsContainer = document.getElementById('library-buttons-container');
+// let buttonsAppended = false; // Flag to track if buttons have been appended
+
+// libraryButton.addEventListener('click', () => {
+//     if (!buttonsAppended) {
+//         const buttons = [
+//             { text: 'Playlists', id: 'playlist-button' },
+//             { text: 'Albums', id: 'album-button' },
+//             { text: 'Songs', id: 'song-button' }
+//         ];
+
+//         buttons.forEach(button => {
+//             const buttonElement = document.createElement('button');
+//             buttonElement.textContent = button.text;
+//             buttonElement.id = button.id;
+//             buttonsContainer.appendChild(buttonElement);
+//         });
+
+//         buttonsAppended = true; // Set flag to true to indicate buttons have been appended
+//     }
+// });
+
+
+
+const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-button');
+const searchResults = document.getElementById('search-results');
+const searchTypes = document.getElementById('search-type');
+
+searchButton.addEventListener('click', () => {
+    const query = searchInput.value.trim(); // Get the search query
+    const type = searchTypes.value; // Get the selected search type
+
+    if (query) {
+        fetch(`http://localhost:3001/search/${type}?q=${encodeURIComponent(query)}`) // Encode the query parameter
+            .then(response => response.json())
+            .then(data => {
+                localStorage.setItem('searchResults', JSON.stringify(data)); // Store the search results in localStorage
+                window.location.href = 'search.html'; // Redirect to the search results page
+            })
+            .catch(error => {
+                console.error('Error searching for music:', error);
+            });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Your code here
+    const playlistButton = document.getElementById('playlist-button');
+    if (playlistButton) {
+        playlistButton.addEventListener('click', () => {
+            window.location.href = 'playlist.html'; // Redirect to the playlist page
+        });
+    }
 });

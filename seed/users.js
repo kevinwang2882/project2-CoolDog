@@ -1,28 +1,22 @@
-// const db = require('../db')
-// const User = require('../models/user');
+const db = require('../db');
+const { User } = require('../models');
 
-// const main = async () => {
-//     try {
-//         const users = [
-//             {
-//                 user_name: 'john_doe',
-//                 email: 'john@example.com',
-//                 password: 'password123',
-//                 address: '123 Main St, City',
-//                 phone: '123-456-7890',
-//             },
-//         ]
-//         // Save the user to the database
-//         await User.insertMany(users);
-//         console.log('Users added successfully!');
-//     } catch (err) {
-//         console.error('Error inserting user:', err);
-//     }
-// };
+const main = async () => {
+    try {
+        const users = [
+            {
+                username: 'john_doe',
+                password: 'password123',
+            },
+        ];
+        // Save the user to the database
+        await User.create(users);
+        console.log('Users added successfully!');
+    } catch (err) {
+        console.error('Error inserting user:', err);
+    } finally {
+        db.close(); // Close the database connection after inserting users
+    }
+};
 
-// const run = async () => {
-//     await main()
-//     db.close()
-// }
-
-// run()
+main(); // Call the main function to start the insertion process

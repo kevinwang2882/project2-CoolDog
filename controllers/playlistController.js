@@ -105,6 +105,13 @@ const saveNewPlaylist = async (req,res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 };
+const addNewPlaylist = async (req,res) => {
+
+    
+}
+
+
+
 
 
 module.exports = {

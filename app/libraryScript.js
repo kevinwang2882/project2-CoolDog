@@ -63,9 +63,24 @@ addPlaylistForm.addEventListener('submit', async (e) => {
     }
 });
 
+allMusicButton.addEventListener('click', () => {
+    fetch('playlist.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('content').innerHTML = data; // Load content into 'content' element
+        })
+        .catch(error => {
+            console.error('Error loading all-music:', error);
+        });
+});
+
+
+
+
 
 function renderPlaylist(playlist) {
     const playlistElement = document.createElement('div');
     playlistElement.textContent = playlist.name;
     playlistsContainer.appendChild(playlistElement);
 }
+
