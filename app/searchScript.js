@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const audioElement = document.createElement('audio');
             audioElement.controls = true; // Show audio controls
             audioElement.src = `http://localhost:3001/songs/${item.filePath}`; // Set the audio source to the file path
-
+             
             resultElement.appendChild(audioElement);
             resultsContainer.appendChild(resultElement);
         });
@@ -28,3 +28,19 @@ document.addEventListener('DOMContentLoaded', () => {
         // Handle case where there are no search results
     }
 });
+function dropdown(){
+document.getElementById("addToPlaylist").addEventListener("click", function() {
+    // Add logic to add the song to a playlist
+    alert("Added to playlist");
+  });
+
+  document.getElementById("addToLibrary").addEventListener("click", function() {
+    // Add logic to add the song to the library
+    alert("Added to library");
+  });
+
+  document.getElementById("playNext").addEventListener("click", function() {
+    // Add logic to play the song next
+    alert("Playing next");
+  });
+}

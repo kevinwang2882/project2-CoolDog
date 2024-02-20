@@ -1,10 +1,26 @@
+
+<link rel="stylesheet" type="text/css" href="playlistStyle.css">
 <body> 
+    <input type="text" id="search-input" placeholder="Find in playlists">
+    <button id="search-button">Search</button>
+    <div id="search-results"></div>
+
     
-    <div class="library-container">
-        <button id="album">Album</button>
-        <button id="song">Songs</button>
+
+    <form id="add-playlist-form">
+        <input type="text" id="playlist-name" placeholder="Playlist Name" required>
+        <button type="submit">＋ New Playlist</button>
+    </form>
+
+    <div id="playlists-container"></div>
+    <div class="buttons-container">
+        <button id="login-button">Login</button>
+        <button id="signup-button">Sign Up</button>
+        <span id="user-name" style="display: none;"></span>
+        <button id="logout-button" style="display: none;">Logout</button>
+       
     </div>
-
- 
-
+    
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="playlistScript.js"></script>
 </body>

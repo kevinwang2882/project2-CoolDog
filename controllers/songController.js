@@ -64,8 +64,8 @@ const searchSong = async (req, res) => {
             return res.status(400).json({ error: 'Search query is required' });
         }
 
-        const songs = await Song.find({ title: { $regex: query, $options: 'i' } }); // Use regex to perform a case-insensitive search
-        res.json(songs); // Return the matching songs as JSON
+        const song = await Song.find({ title: { $regex: query, $options: 'i' } }); // Use regex to perform a case-insensitive search
+        res.json(song); // Return the matching songs as JSON
     } catch (error) {
         console.error('Error searching for songs:', error);
         res.status(500).json({ error: 'Internal server error' });

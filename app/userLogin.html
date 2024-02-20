@@ -10,9 +10,15 @@
 <body>
         <header>
             <h1 class="logo"><a hidefocus="true" href="userLogin.html">CoolDog</a></h1>
+            <select id="search-type">
+                <option value="song">Song</option>
+                <option value="album">Album</option>
+                <option value="playlist">Playlist</option>
+            </select>
                 <div class="search-bar-container">
                 <input type="text" placeholder="Music/Album...">
                 <button>Search</button>
+
                 </div>
         </header>
 
@@ -36,8 +42,10 @@
             
             </div>
             
-
-
+            <div class="library-buttons-container">
+                <button id="playlist-button">playlist</button>
+                <button id="album-button">album</button>
+                <button id="song-button">song</button>
 
     <footer>
         <p>&copy; 2024 CoolDog . All rights reserved.</p>

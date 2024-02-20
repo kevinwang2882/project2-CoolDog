@@ -11,7 +11,7 @@ signupButton.addEventListener('click', () => {
 });
 
 const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-const userName = localStorage.getItem('username');
+const username = localStorage.getItem('username');
 
 function login() {
     // Perform login logic
@@ -37,7 +37,7 @@ function updateButtons() {
         loginButton.style.display = 'none';
         signupButton.style.display = 'none';
         logoutButton.style.display = ''; // Show logout button
-        userNameElement.innerHTML = `<span style="color: white;">Welcome back  </span> <span style="color: red;">${ userName}</span>`;
+        userNameElement.innerHTML = `<span style="color: white;">Welcome back  </span> <span style="color: red;">${ username}</span>`;
         userNameElement.style.display = ''; // Show user's name
     } else {
         loginButton.style.display = '';
@@ -55,14 +55,19 @@ document.getElementById('logout-button').addEventListener('click', () => {
 });
 
 const libraryButton = document.getElementById('library');
-libraryButton.addEventListener('click', () => {
-    fetch('library.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('content').innerHTML = data; // Load content into 'content' element
-        })
-        .catch(error => {
-            console.error('Error loading library:', error);
-        });
-});
+const buttonsContainer = document.getElementById('library-buttons-container');
 
+libraryButton.addEventListener('click', () => {
+ const buttons = [
+        { text: 'Playlists', id: 'playlist-button' },
+        { text: 'Albums', id: 'album-button' },
+        { text: 'Songs', id: 'song-button' }
+    ];
+    buttonsContainer.innerHTML = ''; // Clear previous buttons
+    buttons.forEach(button => {
+        const buttonElement = document.createElement('button');
+        buttonElement.textContent = button.text;
+        buttonElement.id = button.id;
+        buttonsContainer.appendChild(buttonElement);
+    });
+});

@@ -1,13 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" type="text/css" href="libraryStyle.css">
+    
+</head>
+
+
 <body> 
+
+
+    <input type="text" id="search-input" placeholder="Find in playlists/song/album">
+    <button id="search-button">Search</button>
+    <div id="search-results"></div>
     
     <div class="library-container">
-        <button id="playlist">Playlist</button>
-        <button id="album">Album</button>
-        <button id="song">Songs</button>
+        <h2>Playlist</h2>
+        <form id="add-playlist-form">
+            <input type="text" id="playlist-name" placeholder="Playlist Name" required>
+            <button type="submit">＋ New Playlist</button>
+        </form>
+      
+        <h2>Album</h2>
+        <form id="add-album-form">
+            <input type="text" id="album-name" placeholder="Album Name" required>
+            <button type="submit">＋ New Album</button>
+        </form>
+
+        <h2>Songs</h2>
+        <form id="add-song-form">
+            <input type="text" id="song-name" placeholder="Song Name" required>
+            <button type="submit">＋ New Song</button>
+        </form>
     </div>
 
-    <div id="header"></div>
-    <div id="content"></div>
-
     <script src="libraryScript.js"></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
 </body>

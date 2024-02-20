@@ -1,0 +1,25 @@
+/* playlistStyle.css */
+
+/* Style for the playlists container */
+#playlists-container {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Style for individual playlist items */
+.playlist-item {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* Hover effect for playlist items */
+.playlist-item:hover {
+    background-color: #f0f0f0;
+}

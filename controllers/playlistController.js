@@ -71,6 +71,40 @@ const searchPlaylist = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 };
+const searchUserPlaylist = async (req, res) => {
+    const userId = req.query.userId;
+    const nameQuery = req.query.name;
+
+    try {
+        if (!userId) {
+            return res.status(400).json({ error: 'User ID is required' });
+        }
+
+        let playlists;
+        if (nameQuery) {
+            playlists = await Playlist.find({ userId, name: { $regex: nameQuery, $options: 'i' } });
+        } else {
+            playlists = await Playlist.find({ userId });
+        }
+
+        res.json(playlists); // Return the matching playlists as JSON
+    } catch (error) {
+        console.error('Error searching for user playlist:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+};
+
+const saveNewPlaylist = async (req,res) => {
+    try {
+        const { name, user_id } = req.body;
+        const playlist = new Playlist({ name, user_id });
+        await playlist.save();
+        res.status(201).json(playlist);
+    } catch (error) {
+        console.error('Error creating playlist:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+};
 
 
 module.exports = {
@@ -79,5 +113,7 @@ module.exports = {
     createPlaylist,
     updatePlaylist,
     deletePlaylist,
-    searchPlaylist 
+    searchPlaylist,
+    searchUserPlaylist,
+    saveNewPlaylist
 }

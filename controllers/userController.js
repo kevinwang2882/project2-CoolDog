@@ -64,7 +64,7 @@ const userSignUp= async (req, res) => {
         const { username,  password } = req.body;
         // Validate input
         // Check if user already exists
-        const existingUser = await User.findOne({ username});
+        const existingUser = await User.findOne({username});
         if (existingUser) {
             return res.status(400).json({ message: 'User already exists' });
         }
@@ -81,7 +81,7 @@ const userSignUp= async (req, res) => {
 const userLogin = async (req, res) => {
     try {
         const { username, password } = req.body;
-        // Find user by email
+        // Find user by name
         const user = await User.findOne({ username });
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
