@@ -1,4 +1,4 @@
-const { Playlist } = require('../models')
+const { Playlist,UserPlaylist } = require('../models')
 
 const getPlaylist = async (req, res) => {
     try {
@@ -95,13 +95,13 @@ const searchUserPlaylist = async (req, res) => {
 };
 
 const saveNewPlaylist = async (req,res) => {
-    const { name, username } = req.body;
-    if (!name || !username) {
+    const { playlistId, userId } = req.body;
+    if (playlistId || !userId) {
         return res.status(400).json({ error: 'Name and username are required' });
     }
 
     try {
-        const playlist = new Playlist({ name, username });
+        const playlist = new UserPlaylist({ playlistId, userId });
         await playlist.save();
         res.status(201).json({ message: 'Playlist created successfully', playlist });
     } catch (err) {

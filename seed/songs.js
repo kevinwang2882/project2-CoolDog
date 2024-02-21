@@ -31,54 +31,54 @@ db.once('open', async () => {
             title: 'Billie Jean', 
             artist: 'Michael Jackson',
             album: albumIdMap['Thriller'], 
-            filePath: 'music/Billie_Jean.mp3'
+            filePath: 'music/Billie Jean.mp3'
         },
         { 
             title: 'Hotel California', 
             artist: 'Eagles',
             album: albumIdMap['Hotel California'], 
-            filePath: 'music/Hotel_California.mp3'
+            filePath: 'music/Hotel California.mp3'
         },
             { title: 'Stairway to Heaven', 
               artist: 'Led Zeppelin' ,
               album: albumIdMap['Led Zeppelin IV'], 
-              filePath: 'Stairway to Heaven.mp3'
+              filePath: 'music/Stairway to Heaven.mp3'
           },
              { title: 'Shape of You', 
                artist: 'Ed Sheeran' ,
                album: albumIdMap['Divide'], 
-               filePath: 'Shape of You.mp3'
+               filePath: 'music/Shape of You.mp3'
       },
              { title: 'Uptown Funk', 
               artist: 'Mark Ronson' ,
               album: albumIdMap['Uptown Special'], 
-             filePath: 'Uptown Funk.mp3'
+             filePath: 'music/Uptown Funk.mp3'
 },
             { title: 'Happy', 
               artist: 'Pharrell Williams,' ,
              album: albumIdMap['G I R L'], 
-             filePath: 'Happy.mp3'
+             filePath: 'music/Happy.mp3'
 },          
              { title: 'Bohemian Rhapsody', 
               artist: 'Queen' ,
               album: albumIdMap['A Night at the Opera'], 
-              filePath: 'Bohemian Rhapsody.mp3'
+              filePath: 'music/Bohemian Rhapsody.mp3'
           },
 
           { title: 'Sicko Mode', 
           artist: 'Travis Scott' ,
           album: albumIdMap['ASTROWORLD'], 
-          filePath: 'Sicko Mode.mp3'
+          filePath: 'music/Sicko Mode.mp3'
       },
          { title: 'Gods Plan', 
            artist: 'Drake' ,
            album: albumIdMap['Scorpion'], 
-          filePath: 'Gods Plan.mp3'
+          filePath: 'music/Gods Plan.mp3'
     },
           { title: 'Lose Yourself', 
            artist: 'Eminem' ,
            album: albumIdMap['8 Mile Soundtrack'], 
-          filePath: 'Lose Yourself.mp3'
+          filePath: 'music/Lose Yourself.mp3'
 },
         ];
 

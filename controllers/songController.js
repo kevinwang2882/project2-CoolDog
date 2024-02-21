@@ -72,6 +72,27 @@ const searchSong = async (req, res) => {
     }
 };
 
+const addSongToLibrary = async (req, res) => {
+    try {
+        const { songId } = req.params;
+        const { userId } = req.body;
+
+        // Check if the user already has this song in their library
+        const existingUserSong = await UserSong.findOne({ userId, songId });
+        if (existingUserSong) {
+            return res.status(400).json({ error: 'Song already exists in the library' });
+        }
+
+        // Create a new UserSong document and save it to the database
+        const newUserSong = new UserSong({ userId, songId });
+        await newUserSong.save();
+
+        res.status(200).json({ message: 'Song added to library successfully' });
+    } catch (error) {
+        console.error('Error adding song to library:', error);
+        return res.status(500).json({ error: 'Failed to add song to library' });
+    }
+}
 
 
 module.exports = {
@@ -80,7 +101,8 @@ module.exports = {
     createSong,
     updateSong,
     deleteSong,
-    searchSong
+    searchSong,
+    addSongToLibrary
 
 }
 

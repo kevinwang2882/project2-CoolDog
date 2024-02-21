@@ -62,3 +62,39 @@ const fetchRecommendedPlaylists = async () => {
     }
 };
 
+window.onload = function() {
+    const images = document.querySelectorAll('#imageshow img');
+    const bulletsContainer = document.querySelector('.bullets');
+    let currentImage = 0;
+
+    images[currentImage].style.opacity = 1;
+
+    images.forEach((image, index) => {
+        const bullet = document.createElement('span');
+        bullet.classList.add('bullet');
+        if (index === currentImage) {
+            bullet.classList.add('active');
+        }
+        bullet.addEventListener('click', () => {
+            images[currentImage].style.opacity = 0;
+            images[index].style.opacity = 1;
+            document.querySelector('.bullet.active').classList.remove('active');
+            bullet.classList.add('active');
+            currentImage = index;
+        });
+        bulletsContainer.appendChild(bullet);
+    });
+
+    function imageShow() {
+        setInterval(() => {
+            images[currentImage].style.opacity = 0;
+            currentImage = (currentImage + 1) % images.length;
+            images[currentImage].style.opacity = 1;
+            document.querySelector('.bullet.active').classList.remove('active');
+            bulletsContainer.children[currentImage].classList.add('active');
+        }, 10000); // Change interval to 10 seconds
+    }
+
+    imageShow();
+}
+

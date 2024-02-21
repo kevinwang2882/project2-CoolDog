@@ -42,9 +42,48 @@
 
             <div id="header"></div>
             <div id="content"></div>
-            <h2>CoolDog Playlist </h2>
-            <div id="recommended-playlists"></div>
-         
+
+            <div class="imageshow-container">
+            <div id="imageshow">
+                <div class="bullets"></div>
+                <img src="https://www.udiscovermusic.com/wp-content/uploads/2019/08/Taylor-Swift-Lover-album-cover-820.jpg" alt="Image 1">
+                <img src="https://cdn.smehost.net/michaeljacksoncom-uslegacyprod/wp-content/uploads/2017/04/19870831_bad_album.jpg" alt="Image 2">
+                <img src="https://people.com/thmb/-CFk2SUsPbgYeOcrtvMGO35IWOc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x0:1001x2)/taylor-swift-albums-1-93026ca98408417097660e117a10a6a9.jpg" alt="Image 3">
+                <img src="https://classicsdujour.com/wp-content/uploads/2016/03/springsteen-born-to-run.jpg" alt="Image 4">
+                <img src="https://i.scdn.co/image/ab67616d0000b273d3480d741fad497e24f2fafe" alt="Image 5">  
+            </div>
+        </div>
+              
+
+
+
+
+            <h2>CoolDog Playlist</h2>
+            <div id="recommended-playlists" class="playlist-container">
+            <button id="Pop Hits" class="playlist-button">
+                <img src="https://i1.sndcdn.com/artworks-000238705219-wqv8dm-t500x500.jpg" alt="Top pop music">
+                <br>
+                Pop Hits
+            </button>
+            
+            <button id="Rock Anthems" class="playlist-button">
+                <img src="https://i.scdn.co/image/ab67616d0000b273e4d854d5c24666dd6039f2cf" alt="">
+                <br>
+                Rock Anthems
+            </button>
+
+            <button id="All-Time Favorites" class="playlist-button">
+                <img src="data:image/png;base64,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" alt="">
+                <br>
+                All-Time Favorites
+            </button>
+            
+            <button id="Rap & Hip Hop" class="playlist-button">
+                <img src="https://qph.cf2.quoracdn.net/main-qimg-6d2a2369206c081503bec5c5f7217a6f.webp" alt="">
+                <br>
+                Rap & Hip Hop
+            </button>
+            </div>
 
     <footer>
         <p>&copy; 2024 CoolDog . All rights reserved.</p>

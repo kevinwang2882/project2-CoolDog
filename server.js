@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const { searchAlbum,getAlbum, getAlbumById, createAlbum, updateAlbum, deleteAlbum } = require('./controllers/albumController');
 const {saveNewPlaylist,searchUserPlaylist, searchPlaylist ,getPlaylist, getPlaylistById, createPlaylist, updatePlaylist, deletePlaylist } = require('./controllers/playlistController');
-const {searchSong,getSong, getSongById, createSong, updateSong, deleteSong} = require('./controllers/songController');
+const {addSongToLibrary,searchSong,getSong, getSongById, createSong, updateSong, deleteSong} = require('./controllers/songController');
 const { getUsers, getUserById, createUser, updateUser, deleteUser, userSignUp,userLogin, } = require('./controllers/userController');
 const path = require('path');
 
@@ -63,6 +63,7 @@ app.post('/users/login', userLogin)
 
 app.post('/playlists/create', saveNewPlaylist)
 
+app.post('/song/addSong/:id', addSongToLibrary)
 
 // Handle 404 errors
 app.get('/*', async (req,res) => {

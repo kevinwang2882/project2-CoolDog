@@ -1,7 +1,7 @@
 /* styles.css */
 .logo {
     text-decoration: none;
-    color: white !important; /* Change the color to white */
+    color: white !important; 
 }
 body {
     font-family: Arial, sans-serif;
@@ -37,7 +37,6 @@ header {
     border: none;
     cursor: pointer;
 }
-
 .buttons-container {
     position: absolute;
     top: 35px;
@@ -67,10 +66,12 @@ header {
 }
 
 .navbar {
-    background-color: #333;
+    padding: 1px;
+    background-color: #c20c0c;
     color: white;
     text-align: center;
 }
+
 
 .navbar ul {
     list-style-type: none;
