@@ -4,26 +4,27 @@ const searchResults = document.getElementById('search-results');
 const addPlaylistForm = document.getElementById('add-playlist-form');
 const playlistsContainer = document.getElementById('playlists-container');
 
-searchButton.addEventListener('click', async () => {
-    const query = searchInput.value.trim().toLowerCase();
-    const username = localStorage.getItem('username');
-    if (!username) {
-        console.error('Username not found. Please login.');
-        return;
-    }
+// function displaySearchResults(data) {
+// searchButton.addEventListener('click', async () => {
+//     const query = searchInput.value.trim().toLowerCase();
+//     const username = localStorage.getItem('username');
+//     if (!username) {
+//         console.error('Username not found. Please login.');
+//         return;
+//     }
 
-    try {
-        const response = await fetch(`http://localhost:3001/search/user/playlist?userId=${username}&name=${encodeURIComponent(query)}`);
-        if (!response.ok) {
-            throw new Error('Failed to search playlists');
-        }
-        const data = await response.json();
-        displaySearchResults(data);
-    } catch (error) {
-        console.error('Error searching playlists:', error);
-    }
-});
-
+//     try {
+//         const response = await fetch(`http://localhost:3001/search/user/playlist?userId=${username}&name=${encodeURIComponent(query)}`);
+//         if (!response.ok) {
+//             throw new Error('Failed to search playlists');
+//         }
+//         const data = await response.json();
+//         displaySearchResults(data);
+//     } catch (error) {
+//         console.error('Error searching playlists:', error);
+//     }
+// });
+// }
 addPlaylistForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const playlistName = document.getElementById('playlist-name').value.trim();
@@ -49,8 +50,7 @@ addPlaylistForm.addEventListener('submit', async (e) => {
             throw new Error('Failed to add playlist');
         }
         console.log('Playlist added successfully');
-        // Update UI with the new playlist without fetching all playlists again
-        const newPlaylist = { username: username, name: playlistName }; // Assume you have an _id for the new playlist
+        const newPlaylist = await response.json(); // Parse the response to get the new playlist object
         renderPlaylist(newPlaylist);
         // Reset the form
         addPlaylistForm.reset();
