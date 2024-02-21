@@ -95,20 +95,20 @@ const searchUserPlaylist = async (req, res) => {
 };
 
 const saveNewPlaylist = async (req,res) => {
+    const { name, username } = req.body;
+    if (!name || !username) {
+        return res.status(400).json({ error: 'Name and username are required' });
+    }
+
     try {
-        const { name, user_id } = req.body;
-        const playlist = new Playlist({ name, user_id });
+        const playlist = new Playlist({ name, username });
         await playlist.save();
-        res.status(201).json(playlist);
-    } catch (error) {
-        console.error('Error creating playlist:', error);
-        res.status(500).json({ error: 'Internal server error' });
+        res.status(201).json({ message: 'Playlist created successfully', playlist });
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to create playlist' });
     }
 };
-const addNewPlaylist = async (req,res) => {
 
-    
-}
 
 
 
@@ -122,5 +122,6 @@ module.exports = {
     deletePlaylist,
     searchPlaylist,
     searchUserPlaylist,
-    saveNewPlaylist
+    saveNewPlaylist,
+   
 }

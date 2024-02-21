@@ -25,6 +25,9 @@ const playlistsContainer = document.getElementById('playlists-container');
 //     }
 // });
 // }
+
+
+
 addPlaylistForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const playlistName = document.getElementById('playlist-name').value.trim();
@@ -33,29 +36,30 @@ addPlaylistForm.addEventListener('submit', async (e) => {
         console.error('Username not found. Please login.');
         return;
     }
-    if (!playlistName) {
-        console.error('Playlist name is required');
-        return;
-    }
-
-    try {
-        const response = await fetch('http://localhost:3001/playlists', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ name: playlistName, username: username })
-        });
-        if (!response.ok) {
-            throw new Error('Failed to add playlist');
+    if (playlistName) {
+        try {
+            const response = await fetch('http://localhost:3001/playlists/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name: playlistName, username: username })
+            });
+            if (response.ok) {
+                console.log('Playlist added successfully');
+                // Update UI with the new playlist without fetching all playlists again
+                const newPlaylist = { username: username, name: playlistName }; // Assume you have an _id for the new playlist
+                renderPlaylist(newPlaylist);
+                // Reset the form
+                addPlaylistForm.reset();
+            } else {
+                console.error('Failed to add playlist');
+            }
+        } catch (error) {
+            console.error('Error adding playlist:', error);
         }
-        console.log('Playlist added successfully');
-        const newPlaylist = await response.json(); // Parse the response to get the new playlist object
-        renderPlaylist(newPlaylist);
-        // Reset the form
-        addPlaylistForm.reset();
-    } catch (error) {
-        console.error('Error adding playlist:', error);
+    } else {
+        console.error('Playlist name is required');
     }
 });
 

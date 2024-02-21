@@ -61,10 +61,8 @@ app.post('/users/signup', userSignUp)
 //for login
 app.post('/users/login', userLogin)
 
-// app.post('/playlists', saveNewPlaylist)
-app.post('/playlists', (req, res) => {
-    res.send('Playlist created successfully');
-})
+app.post('/playlists/create', saveNewPlaylist)
+
 
 // Handle 404 errors
 app.get('/*', async (req,res) => {
