@@ -5,7 +5,7 @@ CoolDog is a music webplayer. It allows user to sign-up/login, search and play t
 
 # Game Start
 
-![Image Alt Text](.startpage.png)
+![Image Alt Text](./startpage.png)
 
 
 # How to Use
