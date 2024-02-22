@@ -8,9 +8,6 @@ CoolDog is a music webplayer. It allows user to sign-up/login, search and play t
 ![Image Alt Text](./startpage.png)
 
 
-# How to Use
-* click the link
-
 
 # Technology used
 * node.js
