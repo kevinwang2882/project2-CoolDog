@@ -76,10 +76,12 @@ const main = async () => {
 
         await Album.insertMany(albums);
         console.log('Albums added successfully!');
-        db.close(); // Close the database connection after inserting albums
     } catch (err) {
         console.error('Error inserting albums:', err);
-    }
+    }finally {
+      // Close the database connection after all operations are completed
+      db.close();
+  }
 };
 
 main(); // Call the main function to start the insertion process

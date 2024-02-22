@@ -1,12 +1,21 @@
 /* styles.css */
-.logo {
+.logo a {
+   
     text-decoration: none;
     color: white !important; 
 }
+.logo img {
+    width: 30px; /* Set the width of the logo image */
+    height: auto; /* Maintain aspect ratio */
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+}
+.a{
+    color: white;
 }
 
 header {

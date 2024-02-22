@@ -17,14 +17,15 @@ libraryButton.addEventListener('click', () => {
 
     const allMusicButton = document.getElementById('all-music');
 allMusicButton.addEventListener('click', () => {
-    fetch('allMusic/allMusic.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('content').innerHTML = data; // Load content into 'content' element
-        })
-        .catch(error => {
-            console.error('Error loading all-music:', error);
-        });
+    window.location.href = 'allMusic.html';
+    // fetch('allMusic.html')
+    //     .then(response => response.text())
+    //     .then(data => {
+    //         document.getElementById('content').innerHTML = data; // Load content into 'content' element
+    //     })
+    //     .catch(error => {
+    //         console.error('Error loading all-music:', error);
+    //     });
 });
 
 const searchInput = document.getElementById('search-input');
