@@ -9,7 +9,7 @@ CoolDog is a music webplayer. It allows user to sign-up/login, search and play t
 
 
 # How to Use
-* click the lnk
+* click the link
 
 
 # Technology used
@@ -26,12 +26,9 @@ CoolDog is a music webplayer. It allows user to sign-up/login, search and play t
 * enjoy music
 
 # Player Stories
-* As a player, I should be able to to control the Mario with arrow keys
-* As a player, I should be able to collect more items each time it touch box
-* As a player, I should be able to make team to have different Mario-item images
-* As a player, I should be able to track and display my highest score 
-* As a player, I should be able to restart the game
-* As a player, I should be able to see losing massage
+* As a user, I should be able to to login/sign-up.
+* As a user, I should be able to to search for music.
+* As a user, I should be able to to play and pause music.
 
 
 # Stretch goals

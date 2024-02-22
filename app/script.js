@@ -49,6 +49,7 @@ searchButton.addEventListener('click', () => {
             });
     }
 });
+
 const fetchRecommendedPlaylists = async () => {
     try {
         const response = await fetch('http://localhost:3001/playlists');

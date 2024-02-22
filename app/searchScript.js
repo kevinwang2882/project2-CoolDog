@@ -1,29 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
     const searchResults = JSON.parse(localStorage.getItem('searchResults'));
 
+    console.log(searchResults)
     if (searchResults) {
         const resultsContainer = document.getElementById('search-results');
         resultsContainer.innerHTML = ''; // Clear previous results
-    
+
         searchResults.forEach(item => {
             const resultElement = document.createElement('div');
-            if (item.type === 'song') {
+         
                 const songInfo= document.createElement('p');
-                songInfo.textContent = `${item.title} - ${item.artist} `;
-                resultElement.appendChild(songInfo);
-
-            } else if (item.type === 'playlist') {
-                resultElement.textContent = `${item.name} `;
-            } else if (item.type === 'album') {
-                resultElement.textContent = `${item.title} - ${item.artist} `;
-            }
-    
+                songInfo.innerHTML = `
+                <h3>${item.title}</h3>
+                <p>Artst: ${item.artist}</p>
+            `;
+            resultElement.appendChild(songInfo)
+         
             const audioElement = document.createElement('audio');
-            audioElement.controls = true; // Show audio controls
-            audioElement.src = `http://localhost:3001/songs/${item.filePath}`; // Set the audio source to the file path
-    
+            audioElement.controls = true; 
+            audioElement.src = `http://localhost:3001/songs/${item.filePath}`; 
+           
             resultElement.appendChild(audioElement);
             resultsContainer.appendChild(resultElement);
+    
         });
     
         localStorage.removeItem('searchResults'); // Remove the search results from localStorage
@@ -34,18 +33,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.getElementById("addToPlaylist").addEventListener("click", async function() {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    console.log(isLoggedIn)
     if (!isLoggedIn) {
         alert("Please login to add the song to a playlist");
         return;
     }
 
     try {
-        const response = await fetch(`http://localhost:3001/playlists/${playlistId}/addSong/${songId}`, {
+        const response = await fetch(`http://localhost:3001/playlists/${user_id}/addSong/${_id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ songId: songId })
+            body: JSON.stringify({ user_id: _id })
         });
         if (response.ok) {
             alert("Song added to playlist successfully");
