@@ -19,7 +19,7 @@ db.once('open', async () => {
             title: 'Highway to Hell', 
             artist: 'AC/DC',
             album: albumIdMap['Back in Black'], 
-            filePath: 'music/Highway_to_Hell.mp3'
+            filePath: 'music/Highway to Hell.mp3'
         },
         { 
             title: 'Money', 
