@@ -22,7 +22,7 @@ CoolDog is a music webplayer. It allows user to sign-up/login, search and play t
 * search for music
 * enjoy music
 
-# Player Stories
+# User Stories
 * As a user, I should be able to to login/sign-up.
 * As a user, I should be able to to search for music.
 * As a user, I should be able to to play and pause music.
